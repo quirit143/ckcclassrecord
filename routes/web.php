@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
+ 
+Route::get('/student', [StudentController::class,'index']);
 
 //TODO: 1. Basic routing
 Route::get('/hello', function () {
