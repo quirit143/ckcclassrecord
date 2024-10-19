@@ -5,8 +5,8 @@ use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
  
-Route::get('/student', [StudentController::class,'index']);
-
+//Route::get('/student', [StudentController::class,'index']);
+Route::get('/student', [StudentController::class, 'index'])->name('student.index');
 //TODO: 1. Basic routing
 Route::get('/hello', function () {
     return view('hello');
