@@ -12,7 +12,7 @@ class StudentController extends Controller
         //return view('student.index',compact('records'));
 
         $search= $request->input('search');
-
+        //dd($seach);
         $records = Student::when($search,function ($query, $search){
             return $query->where('name','like',"%{$search}%");
         })->get();
@@ -20,5 +20,21 @@ class StudentController extends Controller
         return view('student.search',compact('records','search'));
 
     }
+
+    public function create(){
+        return view('student.add');
+    }
+
+    public function store(Request $request){
+        $student = $request->validate([
+            'name' => ['required', 'regex:/^[A-Za-z0-9 ]+$/'],
+            'course' => ['required'],
+            'year' => ['required', 'integer', 'between:1,4'],
+        ]);
+    
+        Student::create($student);
+        return redirect('/student')->with('success', 'Student added successfully');
+    }
+    
     
 }

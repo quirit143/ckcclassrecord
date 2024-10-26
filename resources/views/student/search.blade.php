@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1>Student List</h1>
-
+    <a href="{{ route('student.create')}}">ADD STUDENT</a>
     <!-- Search Form -->
     <form action="{{ route('student.index') }}" method="GET">
         <input type="text" name="search" value="{{ request('search') }}" placeholder="Search by name">

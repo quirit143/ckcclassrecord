@@ -6,7 +6,11 @@ use Illuminate\Support\Facades\Route;
 
  
 //Route::get('/student', [StudentController::class,'index']);
+//Route::resource('/student',StudentController::class);
+Route::post('/student',[StudentController::class,'store'])->name('student.store');
+Route::get('/student/add',[StudentController::class,'create'])->name('student.create');
 Route::get('/student', [StudentController::class, 'index'])->name('student.index');
+
 //TODO: 1. Basic routing
 Route::get('/hello', function () {
     return view('hello');

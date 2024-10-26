@@ -21,11 +21,13 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         
-        Student::factory()->create([
-            'name' => 'RJ', 
-            'course' => 'BSIT',
-            'year' => 4, 
-        ]);
+        // Student::factory()->create([
+        //     'name' => 'RJ', 
+        //     'course' => 'BSIT',
+        //     'year' => 4, 
+        // ]);
+
+        Student::factory()->count(10)->create();
 
     }
 }
