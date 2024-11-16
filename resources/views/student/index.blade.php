@@ -9,7 +9,9 @@
     <h1>List of Students</h1>
     <ul>
         @foreach($records as $row)
-            <li>{{ $row->name }} - {{ $row->course }} (Year {{ $row->year }})</li>
+            <li>{{ $row->name }} - {{ $row->course }} (Year {{ $row->year }}) 
+                <a href="/student/{{$row->id}}">view</a>
+            </li>
         @endforeach
     </ul>
 </body>

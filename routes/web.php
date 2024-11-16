@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\Route;
  
 //Route::get('/student', [StudentController::class,'index']);
 //Route::resource('/student',StudentController::class);
+Route::get('/student/add',[StudentController::class,'create'])->name('student.create');
+Route::delete('/student/{id}',[StudentController::class,'destroy'])->name('student.delete');
+Route::put('/student/{id}',[StudentController::class,'update'])->name('student.update');
+Route::get('/student/edit/{id}',[StudentController::class,'edit'])->name('student.edit');
+Route::get('/student/{id}',[StudentController::class,'show'])->name('student.show');
 Route::post('/student',[StudentController::class,'store'])->name('student.store');
 Route::get('/student/add',[StudentController::class,'create'])->name('student.create');
 Route::get('/student', [StudentController::class, 'index'])->name('student.index');

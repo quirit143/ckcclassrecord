@@ -35,6 +35,32 @@ class StudentController extends Controller
         Student::create($student);
         return redirect('/student')->with('success', 'Student added successfully');
     }
+
+    public function show($id){
+        $records=Student::find($id);
+        return view('student.show',compact('records'));
+    }
+
+    public function edit($id){
+        $records=Student::find($id);
+        return view('student.edit',compact('records'));
+    }
     
+    public function update(Request $request, $id){
+        $records = $request->validate([
+            'name' => ['required', 'regex:/^[A-Za-z0-9 ]+$/'],
+            'course' => ['required'],
+            'year' => ['required', 'integer', 'between:1,4'],
+        ]);
     
+        $student = Student::findOrFail($id);
+        $student->update($records);
+        return redirect('/student')->with('success', 'Student added successfully');
+    }
+
+    public function destroy($id){
+        $records=Student::find($id);
+        $records->delete();
+        return redirect('/student');
+    }
 }

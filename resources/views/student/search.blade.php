@@ -22,7 +22,9 @@
             <li>No students found.</li>
         @else
             @foreach($records as $student)
-                <li>{{ $student->name }}</li>
+                <li>{{ $student->name }}
+                <a href="{{route('student.show',$student->id)}}">view</a>
+                </li>
             @endforeach
         @endif
     </ul>
